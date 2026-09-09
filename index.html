@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sasha Andronchyk — 3D Artist &amp; iOS Developer</title>
+<meta name="description" content="Interactive 3D portfolio — generated props, a rigged chef character and the Hunyuan3D / Tripo / Blender pipeline that ships them into SceneKit on iOS.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2307090F'/><path d='M16 5l10 5.6v11L16 27 6 21.6v-11z' fill='none' stroke='%233EE8FF' stroke-width='2.2' stroke-linejoin='round'/><path d='M16 16l10-5.4M16 16v11M16 16L6 10.6' fill='none' stroke='%23FF3E7F' stroke-width='1.8' stroke-linejoin='round'/></svg>">
+<link rel="stylesheet" href="assets/style.css">
+<script type="module" src="assets/model-viewer.min.js"></script>
+</head>
+<body>
+
+<header class="hero wrap">
+  <h1><span class="name">Sasha Andronchyk</span></h1>
+  <p class="role">3D Artist <span class="dot">·</span> iOS Developer</p>
+  <div class="meta">
+    <span class="chip">Remote-only</span>
+    <span class="chip">Based in Poland</span>
+    <span class="chip live">Interactive — drag to orbit</span>
+  </div>
+  <p class="lede">
+    I build 3D assets that have to survive a real product, not just a render. Every model on this page is
+    generated, retopologised and budgeted until it runs on an iPhone — then shipped into a live SceneKit
+    scene. Drag any prop below to inspect it in your browser; these are the actual meshes, served locally.
+  </p>
+</header>
+
+<main>
+
+<!-- ============ INTERACTIVE PROPS ============ -->
+<section class="wrap" id="props">
+  <p class="eyebrow">Interactive props</p>
+  <h2>Generated, decimated, web-ready</h2>
+  <p class="sub">
+    Each prop started as a concept image, became a multi-million-triangle mesh in Hunyuan3D-2, and was then
+    cut down to a 180k-triangle web build with generated smooth normals and quantised vertex data. The
+    poster on each card is the original concept the model was generated from.
+  </p>
+
+  <p class="hint"><span class="k">Drag</span> to orbit <span class="k">·</span> scroll to zoom <span class="k">·</span> models auto-rotate</p>
+
+  <div class="props">
+
+    <article class="prop">
+      <model-viewer src="assets/models/drone.glb"
+                    poster="assets/img/poster-drone.jpg"
+                    alt="Interactive 3D model of a sci-fi drone prop"
+                    camera-controls auto-rotate touch-action="pan-y"
+                    environment-image="neutral" shadow-intensity="1"
+                    exposure="1.1" camera-orbit="35deg 72deg 105%"></model-viewer>
+      <div class="body">
+        <b>Drone</b>
+        <p>Sci-fi reconnaissance prop. Hard-surface panelling held up well through decimation.</p>
+        <div class="stats"><span>1.21M → 180k tris</span><span>21.8 MB → 3.1 MB</span></div>
+      </div>
+    </article>
+
+    <article class="prop">
+      <model-viewer src="assets/models/reactor.glb"
+                    poster="assets/img/poster-reactor.jpg"
+                    alt="Interactive 3D model of a sci-fi reactor prop"
+                    camera-controls auto-rotate touch-action="pan-y"
+                    environment-image="neutral" shadow-intensity="1"
+                    exposure="1.1" camera-orbit="35deg 72deg 105%"></model-viewer>
+      <div class="body">
+        <b>Reactor</b>
+        <p>The densest source mesh of the set — 2.1M triangles before the web build.</p>
+        <div class="stats"><span>2.14M → 180k tris</span><span>38.5 MB → 3.1 MB</span></div>
+      </div>
+    </article>
+
+    <article class="prop">
+      <model-viewer src="assets/models/chest.glb"
+                    poster="assets/img/poster-chest.jpg"
+                    alt="Interactive 3D model of a treasure chest prop"
+                    camera-controls auto-rotate touch-action="pan-y"
+                    environment-image="neutral" shadow-intensity="1"
+                    exposure="1.1" camera-orbit="35deg 72deg 105%"></model-viewer>
+      <div class="body">
+        <b>Chest</b>
+        <p>Game-ready container. Banding and lid hardware kept their edges after simplification.</p>
+        <div class="stats"><span>1.80M → 180k tris</span><span>32.4 MB → 3.1 MB</span></div>
+      </div>
+    </article>
+
+    <article class="prop">
+      <model-viewer src="assets/models/crate.glb"
+                    poster="assets/img/poster-crate.jpg"
+                    alt="Interactive 3D model of a wooden crate prop"
+                    camera-controls auto-rotate touch-action="pan-y"
+                    environment-image="neutral" shadow-intensity="1"
+                    exposure="1.1" camera-orbit="35deg 72deg 105%"></model-viewer>
+      <div class="body">
+        <b>Crate</b>
+        <p>Plank geometry and corner brackets — a good stress test for edge preservation.</p>
+        <div class="stats"><span>1.26M → 180k tris</span><span>22.6 MB → 3.1 MB</span></div>
+      </div>
+    </article>
+
+    <article class="prop">
+      <model-viewer src="assets/models/barrel.glb"
+                    poster="assets/img/poster-barrel.jpg"
+                    alt="Interactive 3D model of a barrel prop"
+                    camera-controls auto-rotate touch-action="pan-y"
+                    environment-image="neutral" shadow-intensity="1"
+                    exposure="1.1" camera-orbit="35deg 72deg 105%"></model-viewer>
+      <div class="body">
+        <b>Barrel</b>
+        <p>Curved staves and iron hoops. The lightest source mesh, and the cleanest result.</p>
+        <div class="stats"><span>994k → 180k tris</span><span>17.9 MB → 3.1 MB</span></div>
+      </div>
+    </article>
+
+    <article class="prop">
+      <model-viewer src="assets/models/goose.glb"
+                    alt="Interactive 3D model of a stylised cartoon goose"
+                    camera-controls auto-rotate touch-action="pan-y"
+                    environment-image="neutral" shadow-intensity="1"
+                    exposure="1.1" camera-orbit="35deg 75deg 105%"></model-viewer>
+      <div class="body">
+        <b>Cartoon goose</b>
+        <p>Hand-authored low-poly asset with a baked colour map — the budget a mobile prop should hit.</p>
+        <div class="stats"><span>4.7k tris</span><span>0.8 MB · textured</span></div>
+      </div>
+    </article>
+
+  </div>
+
+  <p class="note">
+    <b>Why the numbers matter.</b> A raw generated mesh is unusable on a phone or in a browser. The web builds
+    here are 180k triangles with smooth normals computed per vertex and positions quantised to 14 bits, so
+    they load without any external decoder — no Draco or Meshopt fetch, the page works fully offline.
+  </p>
+</section>
+
+<!-- ============ CHARACTER ============ -->
+<section class="wrap" id="character">
+  <p class="eyebrow">Character</p>
+  <h2>YourCheff — the chef</h2>
+  <p class="sub">
+    The main character of YourCheff, a voice-first grocery app. He listens while the user speaks a dish name,
+    reads the ingredients back and reacts through each stage of the order. Rigged on 41 bones with 7 skeletal
+    clips, crossfaded on device by the app's stage machine.
+  </p>
+
+  <div class="character">
+    <div class="sheets">
+      <figure class="tile">
+        <img src="assets/img/chef-turnaround.jpg" alt="Turnaround reference sheet of the YourCheff chef character from multiple angles">
+        <figcaption><b>Turnaround</b>Character reference sheet used to drive generation and to check silhouette from every angle.</figcaption>
+      </figure>
+
+      <figure class="tile">
+        <img src="assets/img/chef-neon-kitchen.jpg" alt="Full-body render of the chef character standing in a neon-lit kitchen">
+        <figcaption><b>Neon kitchen</b>Full-body lighting and material study — the look the in-app SceneKit scene was graded towards.</figcaption>
+      </figure>
+    </div>
+
+    <div>
+      <div class="phone">
+        <video controls preload="metadata" playsinline muted
+               poster="assets/img/video-poster.jpg"
+               src="assets/video/yourcheff-animations.mp4"></video>
+      </div>
+      <p class="caption">Animation clip reel, 0:56 — the skeletal clips exported as USDZ for SceneKit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLENDER ART ============ -->
+<section class="wrap" id="blender-art">
+  <p class="eyebrow">Blender art</p>
+  <h2>Where the hard-surface habits come from</h2>
+  <p class="sub">
+    Classic Blender work from around 2020 — hard-surface modelling, product visualisation and lighting,
+    all built and lit by hand before any of it was generated. Budgets, edge flow and three-point lighting
+    were learned here; the pipeline above just automates what this section taught.
+  </p>
+
+  <p class="hint"><span class="k">Click</span> any render to view it full size <span class="k">·</span> arrow keys to browse</p>
+
+  <div class="gallery" id="gallery">
+
+    <figure class="shot" data-cap="Concept bike — cyan and magenta rim lighting, the palette this site still runs on.">
+      <img src="assets/img/blender/moto-neon.jpg" width="1400" height="787" loading="lazy" decoding="async"
+           alt="Front view of a futuristic concept motorcycle lit with cyan and magenta neon on a reflective floor">
+      <figcaption>Concept bike — neon study</figcaption>
+    </figure>
+
+    <figure class="shot" data-cap="The same bike placed in a full environment — daylight, reflections and a city block modelled around it.">
+      <img src="assets/img/blender/moto-city.jpg" width="1400" height="787" loading="lazy" decoding="async"
+           alt="Futuristic concept vehicle parked on a road among white skyscrapers">
+      <figcaption>Concept bike — city block</figcaption>
+    </figure>
+
+    <figure class="shot" data-cap="Emissive geometry against a volumetric lava planet — the lighting test I kept coming back to.">
+      <img src="assets/img/blender/portal.jpg" width="1400" height="991" loading="lazy" decoding="async"
+           alt="Neon purple triangular portal structure standing in front of a glowing lava planet">
+      <figcaption>Portal</figcaption>
+    </figure>
+
+    <figure class="shot" data-cap="Hard-surface exercise — every hinge, cable and warning decal modelled and laid out by hand.">
+      <img src="assets/img/blender/robo-arm.jpg" width="1400" height="1050" loading="lazy" decoding="async"
+           alt="Detailed industrial robotic hand with hydraulic fingers and warning labels">
+      <figcaption>Robotic arm</figcaption>
+    </figure>
+
+    <figure class="shot" data-cap="Hull, ocean shader and haze in one shot — the closest this set gets to a production frame.">
+      <img src="assets/img/blender/penny-ship.jpg" width="1400" height="787" loading="lazy" decoding="async"
+           alt="Armoured hydrofoil ship cutting through a grey ocean with cliffs behind it">
+      <figcaption>Penny — hydrofoil</figcaption>
+    </figure>
+
+    <figure class="shot" data-cap="Hundreds of practical lights carrying the whole frame, with a single figure for scale.">
+      <img src="assets/img/blender/lantern-cave.jpg" width="1400" height="787" loading="lazy" decoding="async"
+           alt="Figure sitting in a cave surrounded by hundreds of small floating orange lanterns">
+      <figcaption>Lantern cave</figcaption>
+    </figure>
+
+    <figure class="shot" data-cap="Automotive detail at dusk — glass, lacquer and a bounce card, no post work.">
+      <img src="assets/img/blender/gt500-dusk.jpg" width="1400" height="1050" loading="lazy" decoding="async"
+           alt="Close-up of a sports car headlight and front wing against a sunset horizon">
+      <figcaption>GT500 — dusk</figcaption>
+    </figure>
+
+    <figure class="shot" data-cap="Product shot with a story attached — glass, glowing sand and a mushroom cloud on the horizon.">
+      <img src="assets/img/blender/uranium-hourglass.jpg" width="1400" height="840" loading="lazy" decoding="async"
+           alt="Hourglass filled with glowing green sand on red rock, a nuclear mushroom cloud behind it">
+      <figcaption>Uranium hourglass</figcaption>
+    </figure>
+
+    <figure class="shot" data-cap="Studio product viz — brushed metal, emissive dial and a controlled cyan key.">
+      <img src="assets/img/blender/spheroid.jpg" width="1400" height="787" loading="lazy" decoding="async"
+           alt="Cyan-lit spherical device with an illuminated dial and a brass bulb">
+      <figcaption>Spheroid</figcaption>
+    </figure>
+
+    <figure class="shot" data-cap="Atmospheric perspective doing the work — a skyline read entirely through fog and a break in the clouds.">
+      <img src="assets/img/blender/neon-city.jpg" width="1400" height="787" loading="lazy" decoding="async"
+           alt="Dark futuristic city skyline at dusk under burning orange clouds">
+      <figcaption>Skyline</figcaption>
+    </figure>
+
+    <figure class="shot" data-cap="Iridescent shader study on a sculpted bust, three colour variants in one render.">
+      <img src="assets/img/blender/chrome-heads.jpg" width="1400" height="1050" loading="lazy" decoding="async"
+           alt="Three iridescent sculpted heads in green, copper and gold against a pale backdrop">
+      <figcaption>Chrome heads</figcaption>
+    </figure>
+
+    <figure class="shot" data-cap="Skin against weathered stone on the same mesh — a subsurface and displacement test.">
+      <img src="assets/img/blender/stone-head.jpg" width="1008" height="1400" loading="lazy" decoding="async"
+           alt="Sculpted head split down the middle, one half skin and one half weathered stone">
+      <figcaption>Half-stone</figcaption>
+    </figure>
+
+  </div>
+
+  <p class="note">
+    <b>Old work, kept on purpose.</b> These are ~2020 renders, made in Blender by hand with no generation
+    step anywhere in them. They are here because the judgement they trained — silhouette, edge flow, where
+    to put the key light — is what makes the generated assets above shippable.
+  </p>
+</section>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Render viewer" hidden>
+  <button class="lb-close" id="lbClose" type="button" aria-label="Close viewer">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" type="button" aria-label="Previous render">&#8249;</button>
+  <button class="lb-nav lb-next" id="lbNext" type="button" aria-label="Next render">&#8250;</button>
+  <figure class="lb-stage">
+    <img id="lbImg" src="" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+</div>
+
+<!-- ============ PORTFOLIO FRAMES ============ -->
+<section class="wrap" id="portfolio">
+  <p class="eyebrow">Portfolio</p>
+  <h2>The 3D on a real screen</h2>
+  <p class="sub">
+    Кадры из живого приложения и стора: та же сцена шефа, тот же пайплайн, но уже внутри
+    продукта, который проходит ревью и уходит пользователям.
+  </p>
+
+  <p class="hint"><span class="k">Click</span> any frame to view it full size</p>
+
+  <div class="gallery phones">
+    <figure class="shot" data-cap="Открытие: голосовой запрос блюда">
+      <img src="assets/img/portfolio/01-t07s.jpg" width="720" height="1558" loading="lazy" decoding="async"
+           alt="Открытие: голосовой запрос блюда">
+      <figcaption>Открытие: голосовой запрос блюда</figcaption>
+    </figure>
+    <figure class="shot" data-cap="Разбор речи, гипотезы Apple Speech">
+      <img src="assets/img/portfolio/02-t18s.jpg" width="720" height="1558" loading="lazy" decoding="async"
+           alt="Разбор речи, гипотезы Apple Speech">
+      <figcaption>Разбор речи, гипотезы Apple Speech</figcaption>
+    </figure>
+    <figure class="shot" data-cap="Подбор по золотой таблице">
+      <img src="assets/img/portfolio/03-t40s.jpg" width="720" height="1558" loading="lazy" decoding="async"
+           alt="Подбор по золотой таблице">
+      <figcaption>Подбор по золотой таблице</figcaption>
+    </figure>
+    <figure class="shot" data-cap="Корзина собирается сама">
+      <img src="assets/img/portfolio/04-t47s.jpg" width="720" height="1558" loading="lazy" decoding="async"
+           alt="Корзина собирается сама">
+      <figcaption>Корзина собирается сама</figcaption>
+    </figure>
+    <figure class="shot" data-cap="Замены и уточнения">
+      <img src="assets/img/portfolio/05-t60s.jpg" width="720" height="1558" loading="lazy" decoding="async"
+           alt="Замены и уточнения">
+      <figcaption>Замены и уточнения</figcaption>
+    </figure>
+    <figure class="shot" data-cap="Сцена шефа в SceneKit">
+      <img src="assets/img/portfolio/06-t75s.jpg" width="720" height="1558" loading="lazy" decoding="async"
+           alt="Сцена шефа в SceneKit">
+      <figcaption>Сцена шефа в SceneKit</figcaption>
+    </figure>
+    <figure class="shot" data-cap="Оформление заказа">
+      <img src="assets/img/portfolio/07-t90s.jpg" width="720" height="1558" loading="lazy" decoding="async"
+           alt="Оформление заказа">
+      <figcaption>Оформление заказа</figcaption>
+    </figure>
+    <figure class="shot" data-cap="Подтверждение и доставка">
+      <img src="assets/img/portfolio/08-t105s.jpg" width="720" height="1558" loading="lazy" decoding="async"
+           alt="Подтверждение и доставка">
+      <figcaption>Подтверждение и доставка</figcaption>
+    </figure>
+    <figure class="shot" data-cap="App Store 6.7" — кадр 1">
+      <img src="assets/img/portfolio/appstore67_1.png" width="1290" height="2796" loading="lazy" decoding="async"
+           alt="App Store 6.7" — кадр 1">
+      <figcaption>App Store 6.7" — кадр 1</figcaption>
+    </figure>
+    <figure class="shot" data-cap="App Store 6.7" — кадр 2">
+      <img src="assets/img/portfolio/appstore67_2.png" width="1290" height="2796" loading="lazy" decoding="async"
+           alt="App Store 6.7" — кадр 2">
+      <figcaption>App Store 6.7" — кадр 2</figcaption>
+    </figure>
+    <figure class="shot" data-cap="App Store 6.7" — кадр 3">
+      <img src="assets/img/portfolio/appstore67_3.png" width="1290" height="2796" loading="lazy" decoding="async"
+           alt="App Store 6.7" — кадр 3">
+      <figcaption>App Store 6.7" — кадр 3</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ PIPELINE ============ -->
+<section class="wrap" id="pipeline">
+  <p class="eyebrow">Pipeline</p>
+  <h2>From prompt to a running iPhone scene</h2>
+  <p class="sub">Three stages, each with a hard budget and a check that has to pass before the asset moves on.</p>
+
+  <div class="pipeline">
+
+    <div class="step">
+      <div class="n">01</div>
+      <div>
+        <h3>Generation — Hunyuan3D-2 and Tripo</h3>
+        <p>
+          Concept image in, dense mesh out. Hunyuan3D-2 runs on a remote GPU box and produces the props you
+          can orbit above, at one to two million triangles each. Tripo handles the character and the interface
+          panels, where a cleaner topology matters more than raw surface detail.
+        </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="n">02</div>
+      <div>
+        <h3>Retopology and rigging — Blender</h3>
+        <p>
+          Headless Blender does the unglamorous half: decimation to budget, normals, UVs, then Auto-Rig Pro
+          for the skeleton and Mixamo retargeting for the motion library. The chef lands at 41 bones and
+          7 clips; props are cut to ≤1k triangles for the app build, 180k for these web viewers.
+        </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="n">03</div>
+      <div>
+        <h3>Delivery — USDZ for SceneKit</h3>
+        <p>
+          Every asset exports to USDZ per clip and is verified by loading it into SceneKit and counting
+          <code>node.animationKeys</code> — not by eyeballing it in Blender. Budgets are enforced, not
+          hoped for: ≤100k triangles for the character, ≤25 MB per USDZ, and the four-state interface rig
+          ships at 336 KB in total.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="note">
+    <b>Honest boundaries.</b> The props on this page are generation output cleaned up for the web — they are
+    not hand-modelled, and the decimation shows if you zoom far enough. The character is the one asset taken
+    all the way through rigging, animation and on-device delivery.
+  </p>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <p class="eyebrow">Get in touch</p>
+  <a class="mail" href="mailto:Andronchyki@icloud.com">Andronchyki@icloud.com</a>
+  <p class="foot-meta">Sasha Andronchyk — 3D Artist &amp; iOS Developer · Remote-only, based in Poland.</p>
+  <p class="foot-links"><a href="https://aliaksandr-andronchyk.github.io/">← Back to the main portfolio</a></p>
+</footer>
+
+<script>
+(function () {
+  var box = document.getElementById('lightbox');
+  if (!box) return;
+
+  var shots = Array.prototype.slice.call(document.querySelectorAll('.gallery .shot'));
+  if (!shots.length) return;
+  var lbImg = document.getElementById('lbImg');
+  var lbCap = document.getElementById('lbCap');
+  var closeBtn = document.getElementById('lbClose');
+  var prevBtn = document.getElementById('lbPrev');
+  var nextBtn = document.getElementById('lbNext');
+  var index = 0;
+  var lastFocus = null;
+
+  shots.forEach(function (shot, i) {
+    shot.tabIndex = 0;
+    shot.setAttribute('role', 'button');
+    shot.addEventListener('click', function () { open(i); });
+    shot.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); }
+    });
+  });
+
+  function show(i) {
+    index = (i + shots.length) % shots.length;
+    var img = shots[index].querySelector('img');
+    lbImg.src = img.getAttribute('src');
+    lbImg.alt = img.getAttribute('alt') || '';
+    lbCap.textContent = shots[index].getAttribute('data-cap') || '';
+  }
+
+  function open(i) {
+    lastFocus = document.activeElement;
+    show(i);
+    box.hidden = false;
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function close() {
+    box.hidden = true;
+    lbImg.src = '';
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  closeBtn.addEventListener('click', close);
+  prevBtn.addEventListener('click', function (e) { e.stopPropagation(); show(index - 1); });
+  nextBtn.addEventListener('click', function (e) { e.stopPropagation(); show(index + 1); });
+  box.addEventListener('click', function (e) { if (e.target === box || e.target === lbImg.parentNode) close(); });
+
+  document.addEventListener('keydown', function (e) {
+    if (box.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') show(index - 1);
+    else if (e.key === 'ArrowRight') show(index + 1);
+  });
+})();
+</script>
+
+</body>
+</html>
